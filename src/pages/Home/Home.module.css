@@ -1,0 +1,156 @@
+.container {
+  height: calc(100vh - 80px); /* Account for navbar height */
+  display: flex;
+  flex-direction: column;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--secondary-bg);
+  border-bottom: 1px solid var(--border-color);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.viewControls {
+  display: flex;
+  gap: 8px;
+}
+
+.viewButton {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  transition: all 0.2s ease-in-out;
+}
+
+.viewButton:hover {
+  background-color: var(--button-hover-bg);
+  border-color: var(--border-hover-color);
+}
+
+.viewButton.active {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+.viewButton.active:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.fileOperations,
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.autosaveIndicator {
+  font-size: 12px;
+  color: var(--success-color);
+  font-weight: 600;
+  white-space: nowrap;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.actionButton {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  transition: all 0.2s ease-in-out;
+}
+
+.actionButton:hover {
+  background-color: var(--button-hover-bg);
+  border-color: var(--border-hover-color);
+}
+
+.actionButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.editorContainer {
+  flex: 1;
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.editorPanel,
+.previewPanel {
+  flex: 1;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* View mode specific styles */
+.editor .editorPanel {
+  flex: 1;
+}
+
+.preview .previewPanel {
+  flex: 1;
+}
+
+.split .editorPanel,
+.split .previewPanel {
+  flex: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  
+  .viewControls,
+  .fileOperations,
+  .actions {
+    justify-content: center;
+  }
+  
+  .autosaveIndicator {
+    text-align: center;
+  }
+  
+  .editorContainer.split {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .split .editorPanel,
+  .split .previewPanel {
+    height: 50%;
+    min-height: 200px;
+  }
+}
