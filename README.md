@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# Markdown Preview App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern markdown editor and previewer built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Live Preview** - Real-time markdown rendering with split, editor, and preview modes
+- **Cloud Sync** - Save/load documents with automatic API fallback
+- **Auto-Save** - Local storage persistence every 2 seconds
+- **File Operations** - Upload markdown files and download as `.md`
+- **Dark Mode** - Theme toggle with system preference detection
+- **Responsive Design** - Works on all devices
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React 19 • TypeScript • Vite • Marked • DOMPurify • Lucide React
 
-## Expanding the ESLint configuration
+## Quick Start
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Server runs at `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+
+## Project Structure
+
 ```
+src/
+├── components/    # React components
+├── pages/        # Page routes
+├── hooks/        # Custom hooks
+├── lib/          # Utilities
+└── contexts/     # Theme context
+```
+
+## Key Features
+
+**Editor Modes**: Toggle between editor-only, split-view, and preview-only layouts.
+
+**Cloud Storage**: Save documents with title and tags. Auto-fallback to JSONPlaceholder if primary API fails.
+
+**Auto-Save**: Content saves to localStorage automatically while you work.
+
+**File Management**: Upload `.md` files and download your work.
+
+## Browser Support
+
+Chrome, Firefox, Safari, and mobile browsers (latest versions).
+
+## Security
+
+- HTML sanitized with DOMPurify
+- Safe markdown parsing
+- XSS attack prevention
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Content not saving | Enable localStorage in DevTools |
+| Preview not updating | Refresh page or clear cache |
+| Cloud sync failing | Check internet connection |
+| Dark mode issues | Clear cache and refresh |
+
+## License
+
+Educational purposes only.
+
+---
+
+**Built by Esther Bawo Tsotso for Altschool Africa**

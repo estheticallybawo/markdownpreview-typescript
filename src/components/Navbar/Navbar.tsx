@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button.jsx";
+import { Button } from "../ui/button.tsx";
 import { BookText } from "lucide-react";
-import ThemeToggle from "../ThemeToggle/ThemeToggle.jsx";
+import ThemeToggle from "../ThemeToggle/ThemeToggle.tsx";
 import styles from "./Navbar.module.css";
 
 function Navbar() {
